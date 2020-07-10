@@ -1,0 +1,99 @@
+package br.com.zup.test.steps;
+
+import cucumber.api.java.After;
+import cucumber.api.java.Before;
+import cucumber.api.java.pt.Dado;
+import cucumber.api.java.pt.Então;
+import cucumber.api.java.pt.Quando;
+import cucumber.api.Scenario;
+
+import static br.com.zup.test.core.DriverFactory.getDriver;
+
+import java.io.File;
+import java.io.IOException;
+import org.openqa.selenium.TakesScreenshot;
+
+import org.openqa.selenium.OutputType;
+import org.apache.commons.io.FileUtils;
+
+import br.com.zup.test.pages.*;
+
+
+
+public class StepDefinition {
+
+	private BasePage basePage = new BasePage();
+	private HomePage homePage = new HomePage();
+	private AmericanasPage americanasPage = new AmericanasPage();
+	private TakesScreenshot ss;
+	private Scenario scenario;
+	
+	
+	public StepDefinition() {
+		
+	}
+	
+	@After()
+	public void fecharBrowser() throws IOException {
+		File arquivo = ss.getScreenshotAs(OutputType.FILE);
+		FileUtils.copyFile(arquivo,
+				new File("target" + File.separator + "ScreenShot" + File.separator + this.scenario.getName() + ".jpg"));
+		basePage.fecharBrowser();
+	}
+	
+	@Before()
+	public void iniciliazarCenario(Scenario scenario) {
+		this.scenario = scenario;
+		this.ss = (TakesScreenshot) getDriver();
+	}
+	
+	@Dado("que acesso o site da Americanas.com")
+	public void queEstouAutenticadoNoSistema() {
+		homePage.acessarSiteAmericanas();
+	}
+	
+	@Quando("pesquiso por {string}")
+	public void pesquisoItem(String nome) {
+		homePage.pesquisarItem(nome);
+	}
+	
+	@Quando("valido que retornou o item pela imagem {string} e pelo texto {string}")
+	public void validoImagemTexto(String imagem, String texto) {
+		americanasPage.validarImagemTexto(imagem, texto);
+	}
+	
+	@Quando("valido a quantidade retornada {string}")
+	public void validoQuantidadeRetornada(String quantidade) {
+		americanasPage.validarQuantidadeRetornada(quantidade);
+	}
+	
+	@Quando("clico no produto {string}")
+	public void clicoProduto(String produto) {
+		americanasPage.clicarProduto(produto);
+	}
+	
+	@Quando("desço a barra de rolagem até o produto {string}")
+	public void descoPagina(String texto) {
+		americanasPage.scrollAteProduto(texto);
+	}
+	
+	@Então("clico em comprar")
+	public void clicoComprar() {
+		americanasPage.clicarComprar();
+	}
+	
+	@Então("vou para a página principal")
+	public void vouPaginaPrincipal() {
+		americanasPage.clicoLogo();
+	}
+	
+	@Então("valido presença no carrinho de compra {string}")
+	public void validoPresencaCarrinho(String produto) {
+		americanasPage.validarPresencaCarrinho(produto);
+	}
+	
+	@Então("valido se quantidade de itens na cesta de compra é {string}")
+	public void validoQuantidadeItensCestaCompra(String valor) {
+		americanasPage.validarQuantidadeItensCesta(valor);
+	}
+}

@@ -1,0 +1,17 @@
+package br.com.zup.test.pages;
+
+public class HomePage extends BasePage {
+	
+	private String MY_TASK = "//a[@id='my_task']";
+
+	
+	public HomePage() {
+		
+	}
+	
+	public void acessarMyTask() {
+		getDSL().clicar(MY_TASK);
+	}
+	
+ 
+}

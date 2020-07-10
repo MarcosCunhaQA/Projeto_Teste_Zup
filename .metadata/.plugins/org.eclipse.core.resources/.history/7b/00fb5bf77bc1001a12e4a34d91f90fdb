@@ -1,0 +1,43 @@
+package br.com.zup.test.pages;
+
+public class LoginPage extends BasePage{
+	
+	private String URL_LOGIN = "https://qa-test.avenuecode.com/users/sign_in";
+	private String CAMPO_USUARIO = "//input[@id='user_email']";          
+	private String CAMPO_SENHA =  "//input[@id='user_password']";                           
+	private String BOTAO_ENTRAR = "//input[@value='Sign in']";
+	
+	public LoginPage() {
+		super();
+	}
+	
+	public boolean estaEmLogin() {
+		return getDSL().getEndereco().equals(URL_LOGIN);
+	}
+
+	public void acessarPaginaLogin() {
+		getDSL().visitarPagina(URL_LOGIN);
+	}
+	
+	private void setUsuario(String usuario) {
+		getDSL().inserirCampo(CAMPO_USUARIO, usuario);
+	}
+	
+	private void setSenha(String senha) {
+		getDSL().inserirCampo(CAMPO_SENHA, senha);
+	}
+	
+	public void efetuarLogin(String usuario, String senha) {
+		if (!estaEmLogin()) {
+			getDSL().visitarPagina(URL_LOGIN);
+		}
+		setUsuario(usuario);
+		setSenha(senha);
+		getDSL().clicarBotao(BOTAO_ENTRAR);
+	}
+	
+	public boolean estaNoLogin() {
+		return getDSL().getEndereco().equals(URL_LOGIN);
+	}
+
+}

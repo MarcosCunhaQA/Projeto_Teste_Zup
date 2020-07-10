@@ -1,0 +1,138 @@
+package br.com.avenue.test.steps;
+
+import cucumber.api.java.After;
+import cucumber.api.java.Before;
+import cucumber.api.java.pt.Dado;
+import cucumber.api.java.pt.Então;
+import cucumber.api.java.pt.Quando;
+import cucumber.api.Scenario;
+
+import static br.com.zup.test.core.DriverFactory.getDriver;
+
+import java.io.File;
+import java.io.IOException;
+import org.openqa.selenium.TakesScreenshot;
+
+import org.openqa.selenium.OutputType;
+import org.apache.commons.io.FileUtils;
+
+import br.com.zup.test.core.Properties;
+import br.com.zup.test.pages.*;
+
+
+
+public class StepDefinition {
+
+	private LoginPage loginPage = new LoginPage();
+	private HomePage homePage = new HomePage();
+	private MyTaskPage myTaskPage = new MyTaskPage();
+	private String usuario;
+	private String senha;
+	private TakesScreenshot ss;
+	private Scenario scenario;
+	
+	
+	public StepDefinition() {
+		this.usuario = Properties.USER_LOGIN;
+		this.senha = Properties.PASSWORD_LOGIN;
+	}
+	
+	@After()
+	public void fecharBrowser() throws IOException {
+		File arquivo = ss.getScreenshotAs(OutputType.FILE);
+		FileUtils.copyFile(arquivo,
+				new File("target" + File.separator + "ScreenShot" + File.separator + this.scenario.getName() + ".jpg"));
+		loginPage.fecharBrowser();
+	}
+	
+	@Before()
+	public void iniciliazarCenario(Scenario scenario) {
+		this.scenario = scenario;
+		this.ss = (TakesScreenshot) getDriver();
+	}
+	
+	@Dado("que estou autenticado no sistema")
+	public void queEstouAutenticadoNoSistema() {
+		loginPage.efetuarLogin(usuario, senha);
+	}
+	
+	@Quando("acesso o my task")
+	public void acessoMyTask() {
+		homePage.acessarMyTask();
+	}
+	
+	@Quando("digito o nome da tarefa {string}")
+	public void digitoNomeTarefa(String nome) {
+		myTaskPage.digitarNomeTarefa(nome);
+	}
+	
+	@Quando("clico para adicionar")
+	public void clicoAdicionar() {
+		myTaskPage.clicarAdicionar();
+	}
+	
+	@Quando("clico no gerenciador de SubTask da task {string}")
+	public void clicoGerenciadorSubTask(String nome) {
+		myTaskPage.clicarGerenciadorSubTask(nome);
+	}
+	
+	@Então("valido a mensagem {string}")
+	public void validoMensagem(String mensagem) {
+		myTaskPage.validarMensagem(mensagem);
+	}
+	
+	@Então("clico para adicionar SubTask")
+	public void clicoAdicionarSubTask() {
+		myTaskPage.clicarAdicionarSubTask();
+	}
+	
+	@Então("valido ausência da subtask {string}")
+	public void validoAusenciaSubTaskEmpty(String nome) {
+		myTaskPage.validarAusenciaSubTaskEmpty(nome);
+	}
+	
+	@Então("valido presença da subtask {string}")
+	public void validoPresencaSubtask(String nome) {
+		myTaskPage.validarPresençaSubtask(nome);
+	}
+	
+	@Então("digito o nome da task {string} na SubTask")
+	public void digitoSubTaskNome(String nome) {
+		myTaskPage.digitarNomeTaskNaSubTask(nome);
+	}
+	
+	@Então("valido presença da task cadastrada {string}")
+	public void validoPresencaTaskCadastrada(String nome) {
+		myTaskPage.validarPresencaTaskCadastrada(nome);
+	}
+	
+	@Então("valido o nome da task {string} na lista de tasks criadas")
+	public void validoNomeTaskListaTask(String nome) {
+		myTaskPage.validarNomeTaskLista(nome);
+	}
+	
+	@Então("clico em close")
+	public void clicoClose() {
+		myTaskPage.clicarClose();
+	}
+	
+	@Então("valido ausência da task {string}")
+	public void validoAusenciaTaskCadastrada(String nome) {
+		myTaskPage.validarAusenciaTaskCadastrada(nome);
+	}
+	
+	@Então("excluo a task cadastrada {string}")
+	public void excluoTaskCadastrada(String nome) {
+		myTaskPage.excluirTaskCadastrada(nome);
+	}
+	
+	@Então("digito o nome da SubTask {string}")
+	public void digitoNomeSubTask(String nome) {
+		myTaskPage.digitarNomeNovaSubTask(nome);
+	}
+	
+	@Então("digito a data {string}")
+	public void digitoData(String data) {
+		myTaskPage.digitarData(data);
+	}
+}

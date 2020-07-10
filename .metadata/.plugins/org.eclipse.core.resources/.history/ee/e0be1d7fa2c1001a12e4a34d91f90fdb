@@ -1,0 +1,24 @@
+#language:pt
+
+
+Funcionalidade: Cadastrar Tasks
+
+	Contexto:
+	Dado que acesso o site da Americanas.com
+	
+	
+	@Run
+	Cenário: Compra do Jogo The Order
+	Quando pesquiso por "The order 1886 ps4"
+	E valido que retornou o item "game the order: 1886 - ps4" e retornou "1 produto"
+	E clico no produto
+	Então clico em comprar
+	E valido presença no carrinho de compra
+	
+	@Ru
+	Cenário: Compra de produto pesquisado
+	Quando pesquiso por "Memório Ram"
+	E valido que retornou o item "Memoria Ram 4gb Ddr3 1600mhz Para Notebook Kvr16s11s84 Kingston" e retornou "926 produto"
+	E clico no produto
+	Então clico em comprar
+	E valido presença no carrinho de compra "Game The Order: 1886 - PS4"

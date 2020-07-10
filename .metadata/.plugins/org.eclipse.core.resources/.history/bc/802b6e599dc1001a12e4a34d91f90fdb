@@ -1,0 +1,38 @@
+package br.com.zup.test.pages;
+
+import br.com.zup.test.core.DSL;
+
+public class MagazineLuizaPage extends BasePage {
+	
+	private String XPATH_ITEM_RETORNADO = "//h3[text()='%s']";
+	private String XPATH_QUANTIDADE_RETORNADA = "//small[text()='%s']";
+	private String XPATH_BOTAO_COMPRAR = "//a[@id='btn-buy']";
+	private String XPATH_JOGO_CARRINHO = "//a[@title='Game The Order: 1886 - PS4']";
+
+	
+	public MagazineLuizaPage() {
+		super();
+	}
+	
+	public MagazineLuizaPage validarQuantidadeRetornado(String quantidade) {
+		getDSL().esperarAteExistente(String.format(XPATH_QUANTIDADE_RETORNADA, quantidade), 3000)
+				.validarConteudo(quantidade, String.format(XPATH_QUANTIDADE_RETORNADA, quantidade));
+		return this;
+	}
+	
+	public MagazineLuizaPage clicarProduto() {
+		getDSL().clicar(String.format(XPATH_ITEM_RETORNADO, "Game The Order: 1886 - PS4"));
+		return this;
+	}
+	
+	public MagazineLuizaPage clicarComprar() {
+		getDSL().clicar(XPATH_BOTAO_COMPRAR);
+		return this;
+	}
+	
+	public MagazineLuizaPage validarPresencaCarrinho() {
+		getDSL().esperarAteExistente(XPATH_JOGO_CARRINHO, 1000)
+				.validarConteudo(XPATH_JOGO_CARRINHO, "Game The Order: 1886 - PS4");
+		return this;
+	}
+}

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+<fullyQualifiedTypeName name="br.com.avenue.test.pages.HomePage"/>
+<fullyQualifiedTypeName name="br.com.avenue.test.core.Properties"/>
+<fullyQualifiedTypeName name="cucumber.api.java.pt.Entao"/>
+<fullyQualifiedTypeName name="java.lang.Thread"/>
+<fullyQualifiedTypeName name="br.com.avenue.test.pages.MyTaskPage"/>
+<fullyQualifiedTypeName name="cucumber.api.java.en.Given"/>
+<fullyQualifiedTypeName name="cucumber.api.java.en.When"/>
+<fullyQualifiedTypeName name="cucumber.api.java.en.Then"/>
+<fullyQualifiedTypeName name="br.com.zup.test.pages.BasePage"/>
+<fullyQualifiedTypeName name="cucumber.api.java.pt.Então"/>
+<fullyQualifiedTypeName name="cucumber.api.java.pt.Quando"/>
+<fullyQualifiedTypeName name="org.openqa.selenium.WebElement"/>
+<fullyQualifiedTypeName name="br.com.zup.test.pages.AmericanasPage"/>
+</qualifiedTypeNameHistroy>

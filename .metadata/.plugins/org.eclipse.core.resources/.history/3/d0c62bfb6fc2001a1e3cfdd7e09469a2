@@ -1,0 +1,47 @@
+package br.com.zup.test.pages;
+
+public class AmericanasPage extends BasePage {
+	
+	private String XPATH_ITEM_RETORNADO = "//img[contains(@alt, '%s')]/../../../../..//div[2]//div//h2";
+	private String XPATH_QUANTIDADE_RETORNADA = "//span[text()='%s']";
+	private String XPATH_BOTAO_COMPRAR = "//a[@id='btn-buy']";
+	private String XPATH_JOGO_CARRINHO = "//a[@title='%s']";
+	private String XPATH_LOGO_FINAL_PAGINA = "//div[@id='ft-svg']";
+
+	
+	public AmericanasPage() {
+		super();
+	}
+	
+	public AmericanasPage validarImagemTexto(String imagem, String texto) {
+		getDSL().esperarAteClicavel(String.format(XPATH_ITEM_RETORNADO, imagem))
+				.validarConteudo(String.format(XPATH_ITEM_RETORNADO, imagem), texto);
+		return this;
+	}
+	
+	public AmericanasPage validarQuantidadeRetornada(String quantidade) {
+		getDSL().validarConteudo(String.format(XPATH_QUANTIDADE_RETORNADA, quantidade), quantidade);
+		return this;
+	}
+	
+	public AmericanasPage clicarProduto(String produto) {
+		getDSL().clicar(String.format(XPATH_ITEM_RETORNADO, produto));
+		return this;
+	}
+	
+	public AmericanasPage descerPagina() {
+		getDSL().scrollbarAteElemento(XPATH_LOGO_FINAL_PAGINA);
+		return this;
+	}
+	
+	public AmericanasPage clicarComprar() {
+		getDSL().clicar(XPATH_BOTAO_COMPRAR);
+		return this;
+	}
+	
+	public AmericanasPage validarPresencaCarrinho(String produto) {
+		getDSL().esperarAteExistente(String.format(XPATH_JOGO_CARRINHO, produto), 1000)
+				.validarConteudo(String.format(XPATH_JOGO_CARRINHO, produto), produto);
+		return this;
+	}
+}

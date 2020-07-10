@@ -1,0 +1,33 @@
+#language:pt
+
+
+Funcionalidade: Cadastrar Tasks
+
+	Contexto:
+	Dado que acesso o site da Americanas.com
+	
+	
+	@Rodar
+	
+	Cenário: Retornando um item na pesquisa e adicionando no carrinho
+	Quando pesquiso por "The order 1886 ps4"
+	E valido que retornou o item "game the order: 1886 - ps4" e retornou "1 produto"
+	E clico no produto "Game The Order: 1886 - PS4"
+	Então clico em comprar
+	E valido presença no carrinho de compra "Game The Order: 1886 - PS4"
+	
+	@Run
+	Cenário: Retornando vários itens na pesquisa e adicionando um item no carrinho
+	Quando pesquiso por "Order ps4"
+	E valido que retornou o item "game the order: 1886 - ps4" e retornou "18 produtos"
+	E clico no produto "Game The Order: 1886 - PS4"
+	Então clico em comprar
+	E valido presença no carrinho de compra "Game The Order: 1886 - PS4"
+	
+	@Run
+	Cenário: Adicionar dois itens no carrinho
+	Quando pesquiso por "Drone SG700 RC Quadcopter"
+	E valido que retornou o item "drone sg700 rc quadcopter" e retornou "2 produtos"
+	E clico no produto "Drone SG700 RC Quadcopter"
+	Então clico em comprar
+	E valido presença no carrinho de compra "Drone SG700 RC Quadcopter"

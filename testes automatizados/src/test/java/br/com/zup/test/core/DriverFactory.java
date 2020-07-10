@@ -1,0 +1,67 @@
+package br.com.zup.test.core;
+
+import java.io.File;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.edge.EdgeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.ie.InternetExplorerDriver;
+import org.openqa.selenium.remote.BrowserType;
+
+import br.com.zup.test.exceptions.BrowserInvalidoException;
+
+public class DriverFactory {
+ 
+	private static WebDriver driver;
+	
+	private DriverFactory() {		
+	};
+	
+	public static WebDriver getDriver() {
+		if(driver == null) {
+			try {
+				Browser browser = Browser.validaBrowser(BrowserType.CHROME);
+				String barra = File.separator; 
+				String caminhoProjeto = System.getProperty("user.dir");
+				System.setProperty(browser.getPropriedade(), caminhoProjeto + barra + "src" + barra + "main" + barra
+						+ "java" + barra + "webdrivers" + barra + browser.getArquivo());
+
+				definirDriver();
+			} catch (BrowserInvalidoException e) {
+				System.out.println("Browser inválido.");
+			}
+			driver.manage().window().maximize();
+		}
+
+		return driver;
+	}
+	
+	private static void definirDriver() throws BrowserInvalidoException {
+		String nomeBrowser = BrowserType.CHROME;
+		if (nomeBrowser == "chrome" || nomeBrowser == "googlechrome") {
+			driver = new ChromeDriver();
+		}
+
+		else if (nomeBrowser == "firefox") {
+			driver = new FirefoxDriver();
+		}
+
+		else if (nomeBrowser == "internet explorer") {
+			driver = new InternetExplorerDriver();
+		}
+
+		else if (nomeBrowser == "MicrosoftEdge") {
+			driver = new EdgeDriver();
+		} else
+			throw new BrowserInvalidoException();
+	}
+
+	public static void fecharDriver() {
+		if (driver != null) {
+			driver.quit();
+			driver = null;
+		}
+	}
+	
+}

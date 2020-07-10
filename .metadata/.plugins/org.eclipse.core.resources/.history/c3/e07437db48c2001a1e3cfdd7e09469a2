@@ -1,0 +1,24 @@
+#language:pt
+
+
+Funcionalidade: Cadastrar Tasks
+
+	Contexto:
+	Dado que acesso o site da Americanas.com
+	
+	
+	@Run
+	Cenário: Pesquisar pelo produto e retornando apenas um item
+	Quando pesquiso por "The order 1886 ps4"
+	E valido que retornou o item "game the order: 1886 - ps4" e retornou "1 produto"
+	E clico no produto
+	Então clico em comprar
+	E valido presença no carrinho de compra "Game The Order: 1886 - PS4"
+	
+	@Run
+	Cenário: Pesquisar pelo produto e retornar vários itens
+	Quando pesquiso por "Order ps4"
+	E valido que retornou o item "game the order: 1886 - ps4" e retornou "18 produtos"
+	E clico no produto
+	Então clico em comprar
+	E valido presença no carrinho de compra "Game The Order: 1886 - PS4"

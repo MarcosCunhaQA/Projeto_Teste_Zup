@@ -1,0 +1,39 @@
+package br.com.zup.test.pages;
+
+import br.com.zup.test.core.DSL;
+
+public class AmericanasPage extends BasePage {
+	
+	private String XPATH_ITEM_RETORNADO = "//h2[text()='%s']";
+	private String XPATH_QUANTIDADE_RETORNADA = "//span[text()='%s']";
+	private String XPATH_BOTAO_COMPRAR = "//a[@id='btn-buy']";
+	private String XPATH_JOGO_CARRINHO = "//a[@title='Game The Order: 1886 - PS4']";
+
+	
+	public AmericanasPage() {
+		super();
+	}
+	
+	public AmericanasPage validarItemRetornado(String produto, String quantidade) {
+		getDSL().esperarAteExistente(String.format(XPATH_ITEM_RETORNADO, "Memoria Ram 4gb Ddr3 1600mhz Para Notebook Kvr16s11s84 Kingston"), 3000)
+				.validarConteudo(String.format(XPATH_ITEM_RETORNADO, "Memoria Ram 4gb Ddr3 1600mhz Para Notebook Kvr16s11s84 Kingston"), produto);
+		getDSL().validarConteudo(String.format(XPATH_QUANTIDADE_RETORNADA, "926 produto"), quantidade);
+		return this;
+	}
+	
+	public AmericanasPage clicarProduto() {
+		getDSL().clicar(String.format(XPATH_ITEM_RETORNADO, "Game The Order: 1886 - PS4"));
+		return this;
+	}
+	
+	public AmericanasPage clicarComprar() {
+		getDSL().clicar(XPATH_BOTAO_COMPRAR);
+		return this;
+	}
+	
+	public AmericanasPage validarPresencaCarrinho() {
+		getDSL().esperarAteExistente(XPATH_JOGO_CARRINHO, 1000)
+				.validarConteudo(XPATH_JOGO_CARRINHO, "Game The Order: 1886 - PS4");
+		return this;
+	}
+}

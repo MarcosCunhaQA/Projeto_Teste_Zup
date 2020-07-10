@@ -1,0 +1,389 @@
+$(document).ready(function() {var formatter = new CucumberHTML.DOMFormatter($('.cucumber-report'));formatter.uri("file:src/test/resources/features/Americanas.feature");
+formatter.feature({
+  "name": "Compras no site Americanas.com",
+  "description": "",
+  "keyword": "Funcionalidade"
+});
+formatter.background({
+  "name": "",
+  "description": "",
+  "keyword": "Contexto"
+});
+formatter.before({
+  "status": "passed"
+});
+formatter.step({
+  "name": "que acesso o site da Americanas.com",
+  "keyword": "Dado "
+});
+formatter.match({
+  "location": "StepDefinition.queEstouAutenticadoNoSistema()"
+});
+formatter.result({
+  "status": "passed"
+});
+formatter.scenario({
+  "name": "Retornando um item na pesquisa e adicionando no carrinho",
+  "description": "",
+  "keyword": "Cenário",
+  "tags": [
+    {
+      "name": "@Run"
+    }
+  ]
+});
+formatter.step({
+  "name": "pesquiso por \"The order 1886 ps4\"",
+  "keyword": "Quando "
+});
+formatter.match({
+  "location": "StepDefinition.pesquisoItem(String)"
+});
+formatter.result({
+  "status": "passed"
+});
+formatter.step({
+  "name": "valido a quantidade retornada \"1 produto\"",
+  "keyword": "E "
+});
+formatter.match({
+  "location": "StepDefinition.validoQuantidadeRetornada(String)"
+});
+formatter.result({
+  "status": "passed"
+});
+formatter.step({
+  "name": "valido que retornou o item pela imagem \"Game The Order: 1886 - PS4\" e pelo texto \"game the order: 1886 - ps4\"",
+  "keyword": "E "
+});
+formatter.match({
+  "location": "StepDefinition.validoImagemTexto(String,String)"
+});
+formatter.result({
+  "status": "passed"
+});
+formatter.step({
+  "name": "clico no produto \"Game The Order: 1886 - PS4\"",
+  "keyword": "E "
+});
+formatter.match({
+  "location": "StepDefinition.clicoProduto(String)"
+});
+formatter.result({
+  "status": "passed"
+});
+formatter.step({
+  "name": "clico em comprar",
+  "keyword": "Então "
+});
+formatter.match({
+  "location": "StepDefinition.clicoComprar()"
+});
+formatter.result({
+  "status": "passed"
+});
+formatter.step({
+  "name": "valido presença no carrinho de compra \"Game The Order: 1886 - PS4\"",
+  "keyword": "E "
+});
+formatter.match({
+  "location": "StepDefinition.validoPresencaCarrinho(String)"
+});
+formatter.result({
+  "status": "passed"
+});
+formatter.after({
+  "status": "passed"
+});
+formatter.background({
+  "name": "",
+  "description": "",
+  "keyword": "Contexto"
+});
+formatter.before({
+  "status": "passed"
+});
+formatter.step({
+  "name": "que acesso o site da Americanas.com",
+  "keyword": "Dado "
+});
+formatter.match({
+  "location": "StepDefinition.queEstouAutenticadoNoSistema()"
+});
+formatter.result({
+  "status": "passed"
+});
+formatter.scenario({
+  "name": "Retornando vários itens na pesquisa e adicionando um item no carrinho",
+  "description": "",
+  "keyword": "Cenário",
+  "tags": [
+    {
+      "name": "@Run"
+    }
+  ]
+});
+formatter.step({
+  "name": "pesquiso por \"Order ps4\"",
+  "keyword": "Quando "
+});
+formatter.match({
+  "location": "StepDefinition.pesquisoItem(String)"
+});
+formatter.result({
+  "status": "passed"
+});
+formatter.step({
+  "name": "valido a quantidade retornada \"18 produtos\"",
+  "keyword": "E "
+});
+formatter.match({
+  "location": "StepDefinition.validoQuantidadeRetornada(String)"
+});
+formatter.result({
+  "status": "passed"
+});
+formatter.step({
+  "name": "desço a barra de rolagem até o produto \"Game The Order: 1886 - PS4\"",
+  "keyword": "E "
+});
+formatter.match({
+  "location": "StepDefinition.descoPagina(String)"
+});
+formatter.result({
+  "status": "passed"
+});
+formatter.step({
+  "name": "valido que retornou o item pela imagem \"Game The Order: 1886 - PS4\" e pelo texto \"game the order: 1886 - ps4\"",
+  "keyword": "E "
+});
+formatter.match({
+  "location": "StepDefinition.validoImagemTexto(String,String)"
+});
+formatter.result({
+  "status": "passed"
+});
+formatter.step({
+  "name": "clico no produto \"Game The Order: 1886 - PS4\"",
+  "keyword": "E "
+});
+formatter.match({
+  "location": "StepDefinition.clicoProduto(String)"
+});
+formatter.result({
+  "status": "passed"
+});
+formatter.step({
+  "name": "clico em comprar",
+  "keyword": "Então "
+});
+formatter.match({
+  "location": "StepDefinition.clicoComprar()"
+});
+formatter.result({
+  "status": "passed"
+});
+formatter.step({
+  "name": "valido presença no carrinho de compra \"Game The Order: 1886 - PS4\"",
+  "keyword": "E "
+});
+formatter.match({
+  "location": "StepDefinition.validoPresencaCarrinho(String)"
+});
+formatter.result({
+  "status": "passed"
+});
+formatter.after({
+  "status": "passed"
+});
+formatter.background({
+  "name": "",
+  "description": "",
+  "keyword": "Contexto"
+});
+formatter.before({
+  "status": "passed"
+});
+formatter.step({
+  "name": "que acesso o site da Americanas.com",
+  "keyword": "Dado "
+});
+formatter.match({
+  "location": "StepDefinition.queEstouAutenticadoNoSistema()"
+});
+formatter.result({
+  "status": "passed"
+});
+formatter.scenario({
+  "name": "Adicionar dois itens no carrinho",
+  "description": "",
+  "keyword": "Cenário",
+  "tags": [
+    {
+      "name": "@Run"
+    }
+  ]
+});
+formatter.step({
+  "name": "pesquiso por \"Drone SG700 RC Quadcopter\"",
+  "keyword": "Quando "
+});
+formatter.match({
+  "location": "StepDefinition.pesquisoItem(String)"
+});
+formatter.result({
+  "status": "passed"
+});
+formatter.step({
+  "name": "valido a quantidade retornada \"2 produtos\"",
+  "keyword": "E "
+});
+formatter.match({
+  "location": "StepDefinition.validoQuantidadeRetornada(String)"
+});
+formatter.result({
+  "status": "passed"
+});
+formatter.step({
+  "name": "valido que retornou o item pela imagem \"Drone SG700 RC Quadcopter\" e pelo texto \"drone sg700 rc quadcopter\"",
+  "keyword": "E "
+});
+formatter.match({
+  "location": "StepDefinition.validoImagemTexto(String,String)"
+});
+formatter.result({
+  "status": "passed"
+});
+formatter.step({
+  "name": "clico no produto \"Drone SG700 RC Quadcopter\"",
+  "keyword": "E "
+});
+formatter.match({
+  "location": "StepDefinition.clicoProduto(String)"
+});
+formatter.result({
+  "status": "passed"
+});
+formatter.step({
+  "name": "clico em comprar",
+  "keyword": "Então "
+});
+formatter.match({
+  "location": "StepDefinition.clicoComprar()"
+});
+formatter.result({
+  "status": "passed"
+});
+formatter.step({
+  "name": "valido presença no carrinho de compra \"Drone SG700 RC Quadcopter\"",
+  "keyword": "E "
+});
+formatter.match({
+  "location": "StepDefinition.validoPresencaCarrinho(String)"
+});
+formatter.result({
+  "status": "passed"
+});
+formatter.step({
+  "name": "vou para a página principal",
+  "keyword": "E "
+});
+formatter.match({
+  "location": "StepDefinition.vouPaginaPrincipal()"
+});
+formatter.result({
+  "status": "passed"
+});
+formatter.step({
+  "name": "valido se quantidade de itens na cesta de compra é \"1\"",
+  "keyword": "E "
+});
+formatter.match({
+  "location": "StepDefinition.validoQuantidadeItensCestaCompra(String)"
+});
+formatter.result({
+  "error_message": "org.junit.ComparisonFailure: expected:\u003c[0]\u003e but was:\u003c[1]\u003e\r\n\tat org.junit.Assert.assertEquals(Assert.java:115)\r\n\tat org.junit.Assert.assertEquals(Assert.java:144)\r\n\tat br.com.zup.test.core.DSL.validarConteudo(DSL.java:77)\r\n\tat br.com.zup.test.pages.AmericanasPage.validarQuantidadeItensCesta(AmericanasPage.java:58)\r\n\tat br.com.zup.test.steps.StepDefinition.validoQuantidadeItensCestaCompra(StepDefinition.java:97)\r\n\tat ✽.valido se quantidade de itens na cesta de compra é \"1\"(file:src/test/resources/features/Americanas.feature:38)\r\n",
+  "status": "failed"
+});
+formatter.step({
+  "name": "pesquiso por \"Order ps4\"",
+  "keyword": "E "
+});
+formatter.match({
+  "location": "StepDefinition.pesquisoItem(String)"
+});
+formatter.result({
+  "status": "skipped"
+});
+formatter.step({
+  "name": "valido a quantidade retornada \"18 produtos\"",
+  "keyword": "E "
+});
+formatter.match({
+  "location": "StepDefinition.validoQuantidadeRetornada(String)"
+});
+formatter.result({
+  "status": "skipped"
+});
+formatter.step({
+  "name": "desço até o produto \"Game The Order: 1886 - PS4\"",
+  "keyword": "E "
+});
+formatter.match({});
+formatter.result({
+  "status": "undefined"
+});
+formatter.step({
+  "name": "valido que retornou o item pela imagem \"Game The Order: 1886 - PS4\" e pelo texto \"game the order: 1886 - ps4\"",
+  "keyword": "E "
+});
+formatter.match({
+  "location": "StepDefinition.validoImagemTexto(String,String)"
+});
+formatter.result({
+  "status": "skipped"
+});
+formatter.step({
+  "name": "clico no produto \"Game The Order: 1886 - PS4\"",
+  "keyword": "E "
+});
+formatter.match({
+  "location": "StepDefinition.clicoProduto(String)"
+});
+formatter.result({
+  "status": "skipped"
+});
+formatter.step({
+  "name": "clico em comprar",
+  "keyword": "Então "
+});
+formatter.match({
+  "location": "StepDefinition.clicoComprar()"
+});
+formatter.result({
+  "status": "skipped"
+});
+formatter.step({
+  "name": "valido presença no carrinho de compra \"Drone SG700 RC Quadcopter\"",
+  "keyword": "E "
+});
+formatter.match({
+  "location": "StepDefinition.validoPresencaCarrinho(String)"
+});
+formatter.result({
+  "status": "skipped"
+});
+formatter.step({
+  "name": "valido presença no carrinho de compra \"Game The Order: 1886 - PS4\"",
+  "keyword": "E "
+});
+formatter.match({
+  "location": "StepDefinition.validoPresencaCarrinho(String)"
+});
+formatter.result({
+  "status": "skipped"
+});
+formatter.after({
+  "status": "passed"
+});
+});

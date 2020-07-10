@@ -1,0 +1,24 @@
+#language:pt
+
+
+Funcionalidade: Cadastrar Tasks
+
+	Contexto:
+	Dado que acesso o site do Magazine Luiza
+	
+	
+	@Run
+	Cenário: Compra de produto pesquisado
+	Quando pesquiso por "iPhone XR Apple"
+	E valido quantidade retornada "(23 produtos encontrados)"
+	E clico no produto
+	Então clico em comprar
+	E valido presença no carrinho de compra
+	
+	@r
+	Cenário: Compra de produto pesquisado
+	Quando pesquiso por "Memório Ram"
+	E valido que retornou o item "Memoria Ram 4gb Ddr3 1600mhz Para Notebook Kvr16s11s84 Kingston" e retornou "926 produto"
+	E clico no produto
+	Então clico em comprar
+	E valido presença no carrinho de compra

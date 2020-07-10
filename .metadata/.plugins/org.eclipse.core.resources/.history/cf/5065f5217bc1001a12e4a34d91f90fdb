@@ -1,0 +1,8 @@
+package br.com.zup.test.core;
+
+public class Properties {
+	
+	public static String USER_LOGIN = "marcoscunhajf@gmail.com";
+	public static String PASSWORD_LOGIN  = "Z1x2c3v4b5";
+	
+}
